@@ -33,8 +33,10 @@ time.sleep(5)
 close_cookies_btn = driver.find_element(By.XPATH,"//a[@data-cc-event='click:dismiss']")
 close_cookies_btn.click()
 
-threading.Thread(target=big_cookie_thread)
-threading.Thread(target=click_upgrades)
+cookie_click_t = threading.Thread(target=big_cookie_thread)
+cookie_click_t.start()
+upgrades_click_t = threading.Thread(target=click_upgrades)
+upgrades_click_t.start()
 
 
 

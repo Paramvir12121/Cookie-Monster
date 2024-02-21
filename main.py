@@ -12,20 +12,13 @@ def big_cookie_thread():
 # Thread function to click on upgrades
 def click_upgrades():
     while True:
-        try:
-            upgrade = driver.find_elements(By.XPATH,'//div[@class="upgrades unlocked enabled"]')
-            if upgrade:
-                upgrade[-1].click()
-        except:
-            pass
-        try:
-            products = driver.find_elements(By.XPATH,'//div[@class="product unlocked enabled"]')
-            print("product : ",products)
-            print("Product Type: ", type(products))
-            if products:
-                products[-1].click()
-        except:
-            pass
+        upgrade = driver.find_elements(By.XPATH,'//div[@class="upgrades unlocked enabled"]')
+        if upgrade:
+            upgrade[-1].click()
+       
+        products = driver.find_elements(By.XPATH,'//div[@class="product unlocked enabled"]')
+        if products:
+            products[-1].click()
         time.sleep(5)
 
 # To keep webdriver running
@@ -51,10 +44,6 @@ cookie_click_t.start()
 upgrades_click_t = threading.Thread(target=click_upgrades)
 upgrades_click_t.start()
 
-
-
-
-# print(cookies_number)
 
 # driver.close()  # Closes the page
 # driver.quit()   # Quits the browser

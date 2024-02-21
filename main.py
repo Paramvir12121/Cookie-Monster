@@ -2,39 +2,43 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time,threading
 
-# To keep webdriver running
-chrome_options = webdriver.ChromeOptions()
-chrome_options.add_experimental_option("detach", True)
-
-driver = webdriver.Chrome(options=chrome_options)
-driver.get("https://orteil.dashnet.org/cookieclicker/")
-
 # threads
 # This thread clicks on the bog cookie
 def big_cookie_thread():
     while True:
         big_cookie = driver.find_element(By.ID, "bigCookie")
         big_cookie.click()
+        time.sleep(1)
 
 # Thread function to click on upgrades
 def click_upgrades():
     while True:
-        upgrade = driver.find_element(By.ID,"<find them>")
+        upgrade = driver.find_element(By.XPATH,'//*[@id="upgrades unlocked enabled"]')
         if upgrade:
             upgrade[-1].click()
-        buildings = driver.find_element(By.ID,"<find them>")
-        if buildings:
-            buildings[-1].click()
-        time.sleep(10)
+        products = driver.find_element(By.XPATH,'//*[@class="product unlocked enabled"]')
+        if products:
+            products[-1].click()
+        time.sleep(5)
 
+# To keep webdriver running
+chrome_options = webdriver.ChromeOptions()
+chrome_options.add_experimental_option("detach", True)
 
-language_button = driver.find_element(By.ID, value="langSelect-EN")
-language_button.click()
+driver = webdriver.Chrome(options=chrome_options)
+driver.get("https://orteil.dashnet.org/cookieclicker/")
+driver.maximize_window()
+
 time.sleep(5)
+language_button = driver.find_element(By.ID, value="langSelect-EN")
+print(language_button)
+language_button.click()
 
-
-close_cookies_btn = driver.find_element(By.XPATH,"//a[@data-cc-event='click:dismiss']")
+time.sleep(5)
+close_cookies_btn = driver.find_element(By.XPATH,"/html/body/div[1]/div/a[1]")
 close_cookies_btn.click()
+
+
 
 cookie_click_t = threading.Thread(target=big_cookie_thread)
 cookie_click_t.start()

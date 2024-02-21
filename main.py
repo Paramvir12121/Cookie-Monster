@@ -19,9 +19,12 @@ def big_cookie_thread():
 # Thread function to click on upgrades
 def click_upgrades():
     while True:
-        upgrade = driver.find_element(By.ID,"product unlocked enabled")
+        upgrade = driver.find_element(By.ID,"<find them>")
         if upgrade:
             upgrade[-1].click()
+        buildings = driver.find_element(By.ID,"<find them>")
+        if buildings:
+            buildings[-1].click()
         time.sleep(10)
 
 

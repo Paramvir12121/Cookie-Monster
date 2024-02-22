@@ -19,7 +19,7 @@ def click_upgrades():
         products = driver.find_elements(By.XPATH,'//div[@class="product unlocked enabled"]')
         if products:
             products[-1].click()
-        time.sleep(5)
+        time.sleep(60)
 
 # To keep webdriver running
 chrome_options = webdriver.ChromeOptions()

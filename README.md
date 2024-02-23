@@ -53,7 +53,7 @@ cd cookie-monster
 ```
 python main.py
 ```
-3. Watch as the scipt does the clicking for you, knowing you have just automated your task. 
+3. Watch as the scipt does the clicking for you, knowing you have just automated your fun. 
 
 ## Usage
 

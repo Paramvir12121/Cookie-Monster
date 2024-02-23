@@ -26,6 +26,15 @@ git clone https://github.com/Paramvir12121/Cookie-Monster.git
 ```
 python -m venv venv
 ```
+3. Start the virtual environment
+- For windows:
+```
+venv/Scripts/activate
+```
+- For Linux:
+```
+Source venv/bin/activate
+```
 
 3. Install the required Python packages:
 ```
@@ -66,10 +75,4 @@ Contributions to improve the automation script are welcome. Please follow these 
 ## License
 
 Distributed under the MIT License. See `LICENSE` for more information.
-
-## Contact
-
-Your Name - [@your_twitter](https://twitter.com/your_twitter) - email@example.com
-
-Project Link: [https://github.com/yourusername/cookie-clicker-automation](https://github.com/yourusername/cookie-clicker-automation)
 

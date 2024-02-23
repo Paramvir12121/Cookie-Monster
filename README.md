@@ -36,7 +36,7 @@ venv/Scripts/activate
 Source venv/bin/activate
 ```
 
-3. Install the required Python packages:
+4. Install the required Python packages:
 ```
 pip install selenium
 ```
